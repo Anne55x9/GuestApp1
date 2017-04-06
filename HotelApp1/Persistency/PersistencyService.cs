@@ -20,6 +20,7 @@ namespace HotelApp1.Persistency
 
         }
 
+        #region Get all guests
         public static async Task<List<Guest>> GetAllGuests()
         {
             using (var client = new HttpClient())
@@ -37,7 +38,9 @@ namespace HotelApp1.Persistency
                 return null;
             }
         }
+        #endregion
 
+        #region Get one guest
         public static async Task<Guest> GetOneGuest(int guestid)
         {
             using (var client = new HttpClient())
@@ -55,6 +58,7 @@ namespace HotelApp1.Persistency
                 return null;
             }
         }
+        #endregion
 
         #region Post new guest
         public static async Task<bool> AddOneGuest(Guest newguest)
@@ -79,5 +83,52 @@ namespace HotelApp1.Persistency
         }
         #endregion
 
+        #region Put guest
+        public static async Task<bool> EditOneGuest(Guest guestid)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                string putUrl = "api/guests/" + guestid.Guest_No.ToString();
+
+                var response = await client.PutAsJsonAsync<Guest>(putUrl, guestid);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        #endregion
+
+        #region Delete guest
+        public static async Task<bool> DeleteOneGuest(Guest guestid)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                string deleteUrl = "api/guests/" + guestid.Guest_No.ToString();
+
+                var response = await client.DeleteAsync(deleteUrl);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        #endregion
     }
 }

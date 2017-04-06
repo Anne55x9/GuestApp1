@@ -8,5 +8,18 @@ namespace HotelApp1.Model
 {
     class Guest
     {
+        public int Guest_No { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+
+        public Guest()
+        {
+
+        }
+
+        public override string ToString()
+        {
+            return $"GæsteID: {Guest_No}. Navn: {Name}. Adresse: {Address}."; 
+        }
     }
 }

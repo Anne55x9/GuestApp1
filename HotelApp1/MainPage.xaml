@@ -8,6 +8,14 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="538" Margin="67,127,0,0" VerticalAlignment="Top" Width="280" Background="#FF55AA00"/>
+        <AppBarButton x:Name="FindOneGuestButton" HorizontalAlignment="Left" Icon="Find" Label="Find gæst" Margin="400,127,0,0" VerticalAlignment="Top"/>
+        <AppBarButton x:Name="UpdateGuestButton" HorizontalAlignment="Left" Icon="Edit" Label="Rediger gæst" Margin="400,229,0,0" VerticalAlignment="Top"/>
+        <AppBarButton x:Name="AddGuestButton" HorizontalAlignment="Left" Icon="Add" Label="Tilføj gæst" Margin="400,343,0,0" VerticalAlignment="Top"/>
+        <AppBarButton x:Name="DeleteGuestButton" HorizontalAlignment="Left" Icon="Delete" Label="Slet gæst" Margin="400,446,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="AllGuestsTitle" HorizontalAlignment="Left" Margin="91,38,0,0" TextWrapping="Wrap" Text="Alle gæster" VerticalAlignment="Top" FontSize="45"/>
+        <TextBlock x:Name="SelectedGuestTextBlock" HorizontalAlignment="Left" Margin="636,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="42" Width="377"/>
+
 
     </Grid>
 </Page>

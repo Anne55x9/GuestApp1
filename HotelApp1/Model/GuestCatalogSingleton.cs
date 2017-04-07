@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HotelApp1.Handler
+namespace HotelApp1.Model
 {
-    class GuestHandler
+    class GuestCatalogSingleton
     {
-        public GuestHandler()
-        {
-
-        }
     }
 }

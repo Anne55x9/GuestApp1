@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="Handler\GuestHandler.cs" />
     <Compile Include="Model\Guest.cs" />
+    <Compile Include="Model\GuestCatalogSingleton.cs" />
     <Compile Include="Persistency\PersistencyService.cs" />
     <Compile Include="ViewModel\GuestViewModel.cs" />
     <Compile Include="View\MainPage.xaml.cs">

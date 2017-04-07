@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using HotelApp1.Model;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using HotelApp1.Handler;
+using System.Windows.Input;
+using HotelApp1.Common;
 
 namespace HotelApp1.ViewModel
 {
@@ -24,10 +27,14 @@ namespace HotelApp1.ViewModel
         #endregion
 
         public GuestCatalogSingleton Instance { get; set; }
+        public GuestHandler MyHandler { get; set; }
 
         public GuestViewModel()
         {
             Instance = GuestCatalogSingleton.SingletonInstance;
+            MyHandler = new GuestHandler(this);
+
+            AddNewGuestCommand = new RelayCommand(MyHandler.AddGuest);
         }
         // props
         public int GuestId { get; set; }
@@ -35,9 +42,11 @@ namespace HotelApp1.ViewModel
         public string Address { get; set; }
         
         // ICommands
+        public ICommand AddNewGuestCommand { get; set; }
         
         public ObservableCollection<Guest> GuestList { get; set; }
 
+        #region selectedGuest
         private Guest selectedGuest;
 
         public Guest SelectedGuest
@@ -49,13 +58,8 @@ namespace HotelApp1.ViewModel
                 
             }
         }
+        #endregion
 
-
-        public void GemGuest()
-        {
-            Guest newGuest = new Guest();
-            //newGuest.Address
-        }
 
     }
 }

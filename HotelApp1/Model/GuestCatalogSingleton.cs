@@ -68,5 +68,12 @@ namespace HotelApp1.Model
         }
         #endregion
 
+        #region Add new guest
+        public async void AddNewGuest(Guest aGuest)
+        {
+            await PersistencyService.AddOneGuest(aGuest);
+            LoadGuests();
+        }
+        #endregion
     }
 }

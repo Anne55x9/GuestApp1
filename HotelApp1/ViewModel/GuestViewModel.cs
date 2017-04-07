@@ -11,6 +11,7 @@ namespace HotelApp1.ViewModel
 {
     class GuestViewModel : INotifyPropertyChanged
     {
+        #region OnPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)
@@ -20,7 +21,14 @@ namespace HotelApp1.ViewModel
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        #endregion
 
+        public GuestCatalogSingleton Instance { get; set; }
+
+        public GuestViewModel()
+        {
+            Instance = GuestCatalogSingleton.SingletonInstance;
+        }
         // props
         public int GuestId { get; set; }
         public string Name { get; set; }
@@ -31,8 +39,6 @@ namespace HotelApp1.ViewModel
         public ObservableCollection<Guest> GuestList { get; set; }
 
         private Guest selectedGuest;
-
-        
 
         public Guest SelectedGuest
         {

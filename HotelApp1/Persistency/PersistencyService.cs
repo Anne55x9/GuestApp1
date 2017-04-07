@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using HotelApp1.Model;
+using System.Collections.ObjectModel;
 
 namespace HotelApp1.Persistency
 {
@@ -21,7 +22,7 @@ namespace HotelApp1.Persistency
         }
 
         #region Get all guests
-        public static async Task<List<Guest>> GetAllGuests()
+        public static async Task<ObservableCollection<Guest>> GetAllGuests()
         {
             using (var client = new HttpClient())
             {
@@ -32,7 +33,7 @@ namespace HotelApp1.Persistency
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var allGuestsList = await response.Content.ReadAsAsync<List<Guest>>();
+                    var allGuestsList = await response.Content.ReadAsAsync<ObservableCollection<Guest>>();
                     return allGuestsList;
                 }
                 return null;

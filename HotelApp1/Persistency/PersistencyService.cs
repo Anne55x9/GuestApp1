@@ -85,7 +85,7 @@ namespace HotelApp1.Persistency
         #endregion
 
         #region Put guest
-        public static async Task<bool> EditOneGuest(Guest guestid)
+        public static async Task<bool> EditGuest(Guest guestid)
         {
             using (var client = new HttpClient())
             {

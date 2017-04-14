@@ -35,6 +35,8 @@ namespace HotelApp1.ViewModel
             MyHandler = new GuestHandler(this);
 
             AddNewGuestCommand = new RelayCommand(MyHandler.AddGuest);
+            DeleteGuestCommand = new RelayCommand(MyHandler.DeleteGuest);
+            EditGuestCommand = new RelayCommand(MyHandler.EditGuest);
         }
         // props
         public int GuestId { get; set; }
@@ -43,7 +45,9 @@ namespace HotelApp1.ViewModel
         
         // ICommands
         public ICommand AddNewGuestCommand { get; set; }
-        
+        public ICommand DeleteGuestCommand { get; set; }
+        public ICommand EditGuestCommand { get; set; }
+
         public ObservableCollection<Guest> GuestList { get; set; }
 
         #region selectedGuest
@@ -55,6 +59,7 @@ namespace HotelApp1.ViewModel
             set
             {
                 selectedGuest = value;
+                OnPropertyChanged(nameof(SelectedGuest));
                 
             }
         }

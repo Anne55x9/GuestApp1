@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using HotelApp1.ViewModel;
 using HotelApp1.Model;
 using HotelApp1.Common;
+using HotelApp1.Persistency;
 
 namespace HotelApp1.Handler
 {
@@ -27,5 +28,19 @@ namespace HotelApp1.Handler
             GuestCatalogSingleton.SingletonInstance.AddNewGuest(tempGuest);
             GuestCatalogSingleton.SingletonInstance.LoadGuests();
         }
+        public async void DeleteGuest()
+        {
+            await PersistencyService.DeleteOneGuest(gvm.SelectedGuest);
+            GuestCatalogSingleton.SingletonInstance.LoadGuests();
+        }
+
+        public async void EditGuest()
+        {
+            await PersistencyService.EditGuest(gvm.SelectedGuest);
+            //gvm.Name = gvm.SelectedGuest.Name;
+            GuestCatalogSingleton.SingletonInstance.LoadGuests();
+        }
+
+
     }
 }

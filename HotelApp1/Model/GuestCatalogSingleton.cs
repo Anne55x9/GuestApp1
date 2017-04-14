@@ -26,12 +26,14 @@ namespace HotelApp1.Model
             }
         }
 
+        #region constructor
         // contructor
         public GuestCatalogSingleton()
         {
             GuestList = new ObservableCollection<Guest>();
             LoadGuests();
         }
+        #endregion
 
         #region Implementering af Singleton
         // implementering af Singleton
@@ -72,6 +74,14 @@ namespace HotelApp1.Model
         public async void AddNewGuest(Guest aGuest)
         {
             await PersistencyService.AddOneGuest(aGuest);
+            LoadGuests();
+        }
+        #endregion
+
+        #region Edit guest
+        public async void EditGuest(Guest aGuest)
+        {
+            await PersistencyService.EditGuest(aGuest);
             LoadGuests();
         }
         #endregion

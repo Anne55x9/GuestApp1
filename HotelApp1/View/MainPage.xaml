@@ -13,20 +13,21 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="538" Margin="67,127,0,0" VerticalAlignment="Top" Width="280" Background="#FF55AA00" ItemsSource="{Binding Instance.GuestList}"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="538" Margin="67,127,0,0" VerticalAlignment="Top" Width="280" Background="#FF55AA00" ItemsSource="{Binding Instance.GuestList}" SelectedItem="{Binding SelectedGuest, Mode=TwoWay}"/>
         <AppBarButton x:Name="FindOneGuestButton" HorizontalAlignment="Left" Icon="Find" Label="Find gæst" Margin="400,127,0,0" VerticalAlignment="Top"/>
-        <AppBarButton x:Name="UpdateGuestButton" HorizontalAlignment="Left" Icon="Edit" Label="Rediger gæst" Margin="400,229,0,0" VerticalAlignment="Top"/>
-        <AppBarButton x:Name="AddGuestButton" HorizontalAlignment="Left" Icon="Add" Label="Tilføj gæst" Margin="651,493,0,0" VerticalAlignment="Top"/>
-        <AppBarButton x:Name="DeleteGuestButton" HorizontalAlignment="Left" Icon="Delete" Label="Slet gæst" Margin="400,353,0,0" VerticalAlignment="Top"/>
+        <AppBarButton x:Name="UpdateGuestButton" HorizontalAlignment="Left" Icon="Edit" Label="Rediger gæst" Margin="400,229,0,0" VerticalAlignment="Top" ClickMode="{Binding EditGuestCommand}"/>
+        <AppBarButton x:Name="AddGuestButton" HorizontalAlignment="Left" Icon="Add" Label="Tilføj gæst" Margin="651,493,0,0" VerticalAlignment="Top" Command="{Binding MyHandler.gvm.AddNewGuestCommand}"/>
+        <AppBarButton x:Name="DeleteGuestButton" HorizontalAlignment="Left" Icon="Delete" Label="Slet gæst" Margin="400,353,0,0" VerticalAlignment="Top" Command="{Binding DeleteGuestCommand}"/>
         <TextBlock x:Name="AllGuestsTitle" HorizontalAlignment="Left" Margin="91,38,0,0" TextWrapping="Wrap" Text="Alle gæster" VerticalAlignment="Top" FontSize="45"/>
-        <TextBlock x:Name="SelectedGuestTextBlock" HorizontalAlignment="Left" Margin="636,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="42" Width="377"/>
+        <TextBlock x:Name="SelectedGuestTextBlock" HorizontalAlignment="Left" Margin="616,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="377" Text="{Binding SelectedGuest, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox x:Name="NameTextBox" HorizontalAlignment="Left" Margin="636,441,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Top" RenderTransformOrigin="1.028,1.469"/>
         <TextBlock x:Name="AddNewGuestTextBlock" HorizontalAlignment="Left" Margin="642,354,0,0" TextWrapping="Wrap" Text="Tilføj ny gæst" VerticalAlignment="Top" FontSize="25"/>
         <TextBlock x:Name="NameTextBlock" HorizontalAlignment="Left" Margin="642,416,0,0" TextWrapping="Wrap" Text="Navn:" VerticalAlignment="Top"/>
         <TextBlock x:Name="AddressTextBlock" HorizontalAlignment="Left" Margin="747,417,0,0" TextWrapping="Wrap" Text="Adresse:" VerticalAlignment="Top"/>
         <TextBox x:Name="AddressTextBox" HorizontalAlignment="Left" Margin="747,442,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding Address, Mode=TwoWay}"/>
         <TextBlock x:Name="GuestIdTextBlock" HorizontalAlignment="Left" Margin="852,416,0,0" TextWrapping="Wrap" Text="GæsteID:" VerticalAlignment="Top"/>
-        <TextBox x:Name="GuestIdTextBox" HorizontalAlignment="Left" Margin="852,442,0,0" TextWrapping="Wrap" Text="{Binding GuestId, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBox x:Name="GuestIdTextBox" HorizontalAlignment="Left" Margin="852,442,0,0" TextWrapping="Wrap" Text="{Binding GuestId, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="EditNameTextBlock" HorizontalAlignment="Left" Margin="616,111,0,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top"/>
 
 
     </Grid>

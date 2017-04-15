@@ -45,6 +45,9 @@ namespace HotelApp1.ViewModel
         public string EditName { get; set; }
         public string EditAddress { get; set; }
         public int EditGuestId { get; set; }
+        public string BookingName { get; set; }
+        public int BookingBGuestId { get; set; }
+        public int BookingCount { get; set; }
 
         // ICommands
         public ICommand AddNewGuestCommand { get; set; }

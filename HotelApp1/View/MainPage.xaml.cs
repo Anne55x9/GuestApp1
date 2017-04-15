@@ -38,6 +38,8 @@ namespace HotelApp1
                 EditNameTextBox.Text = guest.Name;
                 EditAddressTextBox.Text = guest.Address;
                 EditGuestIdTextBox.Text = guest.Guest_No.ToString();
+
+                BookingNameTextBlock.Text = guest.Name;
             }
 
         }

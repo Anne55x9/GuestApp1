@@ -35,7 +35,8 @@
         <TextBox x:Name="EditGuestIdTextBox" HorizontalAlignment="Left" Margin="678,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsReadOnly="True" Text="{Binding EditGuestId, Mode=TwoWay }"/>
         <AppBarButton x:Name="EditGuestOK" HorizontalAlignment="Left" Icon="Accept" Label="OK" Margin="687,259,0,0" VerticalAlignment="Top" Height="42" Width="55" Command="{Binding EditGuestCommand}"/>
         <TextBlock x:Name="EditGuestTextBlock" HorizontalAlignment="Left" Margin="552,40,0,0" TextWrapping="Wrap" Text="Edit guest" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="1062,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
+        <TextBlock x:Name="BookingNameTextBlock" HorizontalAlignment="Left" Margin="428,179,0,0" TextWrapping="Wrap" Text="{Binding BookingName}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="BookingGuestIDTextBlock" HorizontalAlignment="Left" Margin="428,233,0,0" TextWrapping="Wrap" Text="{Binding BookingBGuestId}" VerticalAlignment="Top"/>
 
 
     </Grid>

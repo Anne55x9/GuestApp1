@@ -12,7 +12,8 @@ namespace HotelApp1.Persistency
 {
     class PersistencyService
     {
-        const string serverUrl = "http://webservicehotel20170329012418.azurewebsites.net";
+        // const string serverUrl = "http://webservicehotel20170329012418.azurewebsites.net";
+        const string serverUrl = "http://localhost:19611/";
         static HttpClientHandler clientHandler = new HttpClientHandler();
         static HttpClient client = new HttpClient(clientHandler);
 
@@ -128,6 +129,34 @@ namespace HotelApp1.Persistency
                 {
                     return false;
                 }
+            }
+        }
+        #endregion
+
+        #region ViewGuestBooking
+        public static async Task<bool> FindGuestBooking(Guest guestid)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(serverUrl);
+                client.DefaultRequestHeaders.Clear();
+
+                var response = await client.GetAsync("api/guests/" + guestid.Guest_No.ToString());
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+                {
+
+                }
+            }
+            {
+
             }
         }
         #endregion

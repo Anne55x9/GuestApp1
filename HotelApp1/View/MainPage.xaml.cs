@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelApp1.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,5 +27,20 @@ namespace HotelApp1
         {
             this.InitializeComponent();
         }
+
+        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            Guest guest = (listView.SelectedItem as Guest);
+
+            if (guest != null)
+            {
+                EditNameTextBox.Text = guest.Name;
+                EditAddressTextBox.Text = guest.Address;
+                EditGuestIdTextBox.Text = guest.Guest_No.ToString();
+            }
+
+        }
+
     }
 }

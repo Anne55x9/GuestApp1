@@ -24,7 +24,9 @@ namespace HotelApp1.Handler
             Guest tempGuest = new Guest();
             tempGuest.Name = gvm.Name;
             tempGuest.Address = gvm.Address;
+            //int maxId = gvm.GuestList.OrderByDescending(item => item.Guest_No).First().Guest_No + 1;
             tempGuest.Guest_No = gvm.GuestId;
+
             GuestCatalogSingleton.SingletonInstance.AddNewGuest(tempGuest);
             GuestCatalogSingleton.SingletonInstance.LoadGuests();
         }
@@ -34,10 +36,13 @@ namespace HotelApp1.Handler
             GuestCatalogSingleton.SingletonInstance.LoadGuests();
         }
 
-        public async void EditGuest()
+        public void EditGuest()
         {
-            await PersistencyService.EditGuest(gvm.SelectedGuest);
-            //gvm.Name = gvm.SelectedGuest.Name;
+            Guest tempGuest = new Guest();
+            tempGuest.Name = gvm.EditName;
+            tempGuest.Address = gvm.EditAddress;
+            tempGuest.Guest_No = gvm.EditGuestId;
+            GuestCatalogSingleton.SingletonInstance.EditGuest(tempGuest);
             GuestCatalogSingleton.SingletonInstance.LoadGuests();
         }
 

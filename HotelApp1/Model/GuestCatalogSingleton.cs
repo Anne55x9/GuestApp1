@@ -86,9 +86,9 @@ namespace HotelApp1.Model
         }
         #endregion
 
-        public async void GuestBooking(Guest aGuest)
-        {
-            await PersistencyService.FindGuestBooking(aGuest);
-        }
+        //public async void GuestBooking(Guest aGuest)
+        //{
+        //    await PersistencyService.FindGuestBooking(aGuest);
+        //}
     }
 }

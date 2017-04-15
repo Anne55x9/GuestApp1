@@ -85,5 +85,10 @@ namespace HotelApp1.Model
             LoadGuests();
         }
         #endregion
+
+        public async void GuestBooking(Guest aGuest)
+        {
+            await PersistencyService.FindGuestBooking(aGuest);
+        }
     }
 }

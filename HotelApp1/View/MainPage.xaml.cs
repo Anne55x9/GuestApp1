@@ -40,6 +40,7 @@ namespace HotelApp1
                 EditGuestIdTextBox.Text = guest.Guest_No.ToString();
 
                 BookingNameTextBlock.Text = guest.Name;
+                BookingGuestIDTextBlock.Text = guest.Guest_No.ToString();
             }
 
         }

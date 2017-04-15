@@ -134,29 +134,34 @@ namespace HotelApp1.Persistency
         #endregion
 
         #region ViewGuestBooking
-        public static async Task<bool> FindGuestBooking(Guest guestid)
+        public static ObservableCollection<GuestBooking> FindGuestBooking(int guestid)
         {
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(serverUrl);
                 client.DefaultRequestHeaders.Clear();
 
-                var response = await client.GetAsync("api/guests/" + guestid.Guest_No.ToString());
+                string bookingUrl = "api/guestbooking/";
+                
+                var bresponse = client.GetAsync(bookingUrl).Result;
 
-                if (response.IsSuccessStatusCode)
+                if (bresponse.IsSuccessStatusCode)
                 {
-                    return true;
+                    var BookingById = new ObservableCollection<GuestBooking>();
+
+                    foreach (var item in bresponse.Content.ReadAsAsync<ObservableCollection<GuestBooking>>().Result) 
+                    {
+                        if (item.bGuestId == guestid)
+                        {
+                            BookingById.Add(item);
+                        }
+                    }
+                    return BookingById;
                 }
                 else
                 {
-                    return false;
+                    return null;
                 }
-                {
-
-                }
-            }
-            {
-
             }
         }
         #endregion

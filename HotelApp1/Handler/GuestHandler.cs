@@ -46,6 +46,11 @@ namespace HotelApp1.Handler
             GuestCatalogSingleton.SingletonInstance.LoadGuests();
         }
 
+        public void FindGuestBooking()
+        {
+            gvm.BookingBGuestId = PersistencyService.FindGuestBooking(SelectedGuest.Guest_No.ToString());
+        }
+
 
     }
 }
